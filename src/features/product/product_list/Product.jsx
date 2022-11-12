@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import ProductCard from './ProductCard';
-import { FiSearch } from 'react-icons/fi';
-import { useGetProductsQuery } from "../../services/productAPI";
+import React from "react";
+import ProductCard from "./ProductCard";
+import { FiSearch } from "react-icons/fi";
+import { useGetProductsQuery } from "../../../services/productAPI";
 import {
   Box,
   Center,
@@ -14,29 +14,12 @@ import {
   Divider,
   Text,
 } from "@chakra-ui/react";
+import useSearch from "../../../hooks/useSearch";
 
 const Products = () => {
-
-  const {data: products , isLoading } = useGetProductsQuery();
-  const [searchValue, setSearchValue] = useState("");
-  const [productsSearched, setProductsSearched] = useState([]);
-
-  useEffect(() => {
-    if (products && products.length !== 0) {
-      if (searchValue === "") {
-        setProductsSearched(products);
-      } else {
-        setProductsSearched(
-          products
-            .filter((product) => {
-              return product.model
-                .toLocaleLowerCase()
-                .includes(searchValue.toLocaleLowerCase());
-            })
-        );
-      }
-    }
-  }, [products, searchValue]);
+  
+  const { data: products, isLoading } = useGetProductsQuery();
+  const { elementsSearched, setSearchValue } = useSearch(products || []);
 
   return (
     <Box maxW="7xl" mx={"auto"} pt={12} px={{ base: 2, sm: 12, md: 1 }} mt={5}>
@@ -65,13 +48,13 @@ const Products = () => {
         <Center h="500px">
           <Spinner size="xl" />
         </Center>
-      ) : productsSearched.length === 0 ? (
+      ) : elementsSearched.length === 0 ? (
         <Center h="500px">
           <Text fontSize="3xl">Oops no data found</Text>
         </Center>
       ) : (
         <SimpleGrid columns={{ base: 2, md: 4 }} spacing={{ base: 2, lg: 7 }}>
-          {products.map((product, index) => {
+          {elementsSearched.map((product, index) => {
             return (
               <ProductCard
                 key={index}
@@ -85,13 +68,6 @@ const Products = () => {
           })}
         </SimpleGrid>
       )}
-      <Flex
-        maxW="100%"
-        w={["90vw", "90vw"]}
-        direction={["column", "row"]}
-        justify="center"
-      >
-      </Flex>
     </Box>
   );
 };

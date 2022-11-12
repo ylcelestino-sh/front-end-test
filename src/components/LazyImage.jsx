@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Image, Spinner } from "@chakra-ui/react";
-import useLazyLoadImage from "../../hooks/useLazyLoadImage";
+import useLazyLoadImage from "../hooks/useLazyLoadImage";
 
 const LazyImage = ({ alt, src, rounded, height, width, objectFit }) => {
   const { imageSrc, setImageRef, isLoading } = useLazyLoadImage(src);

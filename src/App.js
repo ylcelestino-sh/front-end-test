@@ -10,8 +10,8 @@ import { Provider } from 'react-redux';
 import { store } from './app/store';
 import { ChakraProvider } from '@chakra-ui/react'
 import MainContainer from './layout/MainContainer';
-import Products from './features/product/Product';
-import ProductDetails from './features/product/ProductDetails';
+import ProductDetails from './features/product/product_details/ProductDetails';
+import Products from './features/product/product_list/Product';
 
 function App() {
   return (
