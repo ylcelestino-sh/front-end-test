@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from "react-redux";
 import { FiChevronLeft } from 'react-icons/fi';
-
 import { useLocation, useNavigate } from 'react-router-dom';
 import BadgeNotification from "../components/BadgeNotification";
 import {
@@ -17,6 +16,7 @@ import {
 } from '@chakra-ui/react';
 
 export const MainContainer = ({ children }) => {
+
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { countProductInCart } = useSelector((state) => state.product);

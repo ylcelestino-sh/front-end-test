@@ -6,10 +6,10 @@ import {
   Heading,
   Text,
   Stack,
-  Image,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
+import LazyImage from "./LazyImage";
 
 const ProductCard = ({ image, brand, model, price, id }) => {
   const navigate = useNavigate();
@@ -41,7 +41,6 @@ const ProductCard = ({ image, brand, model, price, id }) => {
             pos: "absolute",
             top: 5,
             left: 0,
-            backgroundImage: `url(${image})`,
             filter: "blur(15px)",
             zIndex: -1,
           }}
@@ -51,14 +50,14 @@ const ProductCard = ({ image, brand, model, price, id }) => {
             },
           }}
         >
-          <Image
+          <LazyImage 
+            alt={model}
+            src={image}
             rounded={"lg"}
             height={150}
             width={282}
             objectFit={"contain"}
-            src={image}
-            loading="lazy"
-          />
+           />
         </Box>
         <Stack pt={10}>
           <Heading as="h1" size="md">

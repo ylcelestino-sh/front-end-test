@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
-import Pagination from '../../components/Pagination';
+import { FiSearch } from 'react-icons/fi';
+import { useGetProductsQuery } from "../../services/productAPI";
 import {
   Box,
   Center,
@@ -13,32 +14,17 @@ import {
   Divider,
   Text,
 } from "@chakra-ui/react";
-import { FiSearch } from 'react-icons/fi';
-
-import usePaginationControl from "../../hooks/usePaginationControl";
-import { useGetProductsQuery } from "../../services/productAPI";
 
 const Products = () => {
-  
-  const {
-    indexOfFirstItem,
-    indexOfLastItem,
-    paginate,
-    currentPage,
-    numberOfProductsPerPage,
-  } = usePaginationControl();
 
   const {data: products , isLoading } = useGetProductsQuery();
   const [searchValue, setSearchValue] = useState("");
   const [productsSearched, setProductsSearched] = useState([]);
-  const [totalProductSearched, setTotalProductSearched] = useState(0);
 
   useEffect(() => {
-    // TODO: implement custom hook
     if (products && products.length !== 0) {
       if (searchValue === "") {
-        setProductsSearched(products.slice(indexOfFirstItem, indexOfLastItem));
-        setTotalProductSearched(products.length);
+        setProductsSearched(products);
       } else {
         setProductsSearched(
           products
@@ -47,12 +33,10 @@ const Products = () => {
                 .toLocaleLowerCase()
                 .includes(searchValue.toLocaleLowerCase());
             })
-            .slice(indexOfFirstItem, indexOfLastItem)
         );
-        setTotalProductSearched(productsSearched.length);
       }
     }
-  }, [products, searchValue, indexOfFirstItem, indexOfLastItem]);
+  }, [products, searchValue]);
 
   return (
     <Box maxW="7xl" mx={"auto"} pt={12} px={{ base: 2, sm: 12, md: 1 }} mt={5}>
@@ -87,7 +71,7 @@ const Products = () => {
         </Center>
       ) : (
         <SimpleGrid columns={{ base: 2, md: 4 }} spacing={{ base: 2, lg: 7 }}>
-          {productsSearched.map((product, index) => {
+          {products.map((product, index) => {
             return (
               <ProductCard
                 key={index}
@@ -107,14 +91,9 @@ const Products = () => {
         direction={["column", "row"]}
         justify="center"
       >
-        <Pagination
-          paginate={paginate}
-          currentPage={currentPage} // TODO: implement custom hook for currentPage
-          elementsPerPage={numberOfProductsPerPage}
-          totalElements={totalProductSearched}
-        />
       </Flex>
     </Box>
   );
 };
+
 export default Products;
