@@ -9,7 +9,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-import LazyImage from "./LazyImage";
+import LazyImage from "../../../components/LazyImage";
 
 const ProductCard = ({ image, brand, model, price, id }) => {
   const navigate = useNavigate();
