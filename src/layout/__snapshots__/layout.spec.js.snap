@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render main container 1`] = `
+<div
+  class="chakra-container css-pr22bl"
+  id="container"
+/>
+`;
+
+exports[`Render main container 2`] = `
+<div
+  class="css-rw02bh"
+  id="header"
+>
+  <div
+    class="css-1v5zkfs"
+  >
+    <div
+      class="chakra-stack css-998b3j"
+    >
+      <nav
+        aria-label="breadcrumb"
+        class="chakra-breadcrumb css-0"
+      >
+        <ol
+          class="chakra-breadcrumb__list css-70qvj9"
+        >
+          <li
+            class="chakra-breadcrumb__list-item css-18biwo"
+          >
+            <a
+              class="chakra-breadcrumb__link css-spn4bz"
+            >
+              Products
+            </a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+    <button
+      aria-label="Notifications"
+      class="chakra-button css-9ek20f"
+      type="button"
+    >
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="9"
+          cy="21"
+          r="1"
+        />
+        <circle
+          cx="20"
+          cy="21"
+          r="1"
+        />
+        <path
+          d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+        />
+      </svg>
+      <span
+        class="css-1szyxpv"
+        data-testid="itemNumber"
+        variant="ghost"
+      >
+        0
+      </span>
+    </button>
+  </div>
+</div>
+`;

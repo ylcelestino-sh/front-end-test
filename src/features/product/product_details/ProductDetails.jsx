@@ -24,7 +24,7 @@ const ProductDetails = () => {
           <Spinner size="xl" />
         </Center>
       ) : (
-        <Box p={4} display={{ md: "flex" }} mt={12}>
+        <Box p={4} display={{ md: "flex" }} mt={12} data-testid="productDetails">
           <Box flexShrink={0}>
             <Image
               borderRadius="lg"

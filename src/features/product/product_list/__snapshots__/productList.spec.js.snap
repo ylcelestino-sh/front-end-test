@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product list Tests productCard show correctly and and navigate to /product:id on click 1`] = `
+<div
+  class="css-1pxb9vs"
+  data-testid="productCard"
+>
+  <button
+    class="css-1rhsp8h"
+    data-testid="productCardBox"
+    role="group"
+  >
+    <div
+      class="css-1th8op1"
+    >
+      <img
+        alt="Iconia Talk S"
+        class="chakra-image__placeholder css-zv8j3m"
+        data-testid="lazyImage"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
+      />
+    </div>
+    <div
+      class="chakra-stack css-1fa334y"
+    >
+      <h1
+        class="chakra-heading css-18j379d"
+      >
+        Iconia Talk S
+      </h1>
+      <h2
+        class="chakra-heading css-18j379d"
+      >
+        $
+        170
+      </h2>
+      <div
+        class="chakra-stack css-n21gh5"
+      >
+        <p
+          class="chakra-text css-m9w7kq"
+        >
+          brand: 
+          Acer
+        </p>
+      </div>
+    </div>
+  </button>
+</div>
+`;

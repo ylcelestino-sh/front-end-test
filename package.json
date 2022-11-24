@@ -7,9 +7,6 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@reduxjs/toolkit": "^1.8.6",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^14.4.3",
     "axios": "^0.27.2",
     "framer-motion": "^7.6.4",
     "react": "^18.2.0",
@@ -47,8 +44,13 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
     "eslint": "^8.26.0",
     "eslint-plugin-react": "^7.31.10",
+    "jest": "^27.5.1",
+    "jest-fetch-mock": "^3.0.3",
     "prettier": "2.7.1"
   }
 }

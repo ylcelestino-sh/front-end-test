@@ -1,6 +1,6 @@
 import React from "react";
 import BadgeNotification from "../components/BadgeNotification";
-import { FiChevronLeft } from "react-icons/fi";
+import { FiChevronRight } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
@@ -19,7 +19,7 @@ const Header = () => {
   const { countProductInCart } = useSelector((state) => state.product);
 
   return (
-    <Box overflow="hidden" position="fixed" top="0" width="100%" zIndex="999">
+    <Box overflow="hidden" position="fixed" top="0" width="100%" zIndex="999" id="header">
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
@@ -37,9 +37,9 @@ const Header = () => {
           direction={"row"}
           spacing={2}
         >
-          <Breadcrumb separator={<FiChevronLeft color="gray.500" />}>
+          <Breadcrumb separator={<FiChevronRight color="gray.500" />}>
             <BreadcrumbItem>
-              <BreadcrumbLink onClick={() => navigate("/product")}>
+              <BreadcrumbLink onClick={() => navigate("/products")}>
                 Products
               </BreadcrumbLink>
             </BreadcrumbItem>

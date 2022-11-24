@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-
-const placeHolder =
-  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=";
+import { PLACEHOLDER } from "../constant/constant";
 
 const useLazyLoadImage = (src) => {
-  const [imageSrc, setImageSrc] = useState(placeHolder);
+  const [imageSrc, setImageSrc] = useState(PLACEHOLDER);
   const [imageRef, setImageRef] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -12,8 +10,12 @@ const useLazyLoadImage = (src) => {
     let observer;
     let didCancel = false;
 
+    if(!src || src.length === 0) {
+      didCancel = true; 
+    }
+
     if (imageRef && imageSrc !== src) {
-      if (IntersectionObserver) {
+      if (window.IntersectionObserver) {
         observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
@@ -24,8 +26,7 @@ const useLazyLoadImage = (src) => {
                 setIsLoading(true);
 
                 setTimeout(() => {
-                    setImageSrc(src);
-                    setIsLoading(false);
+                  setImageSrc(src);
                 }, 1000);
 
                 observer.unobserve(imageRef);
@@ -48,9 +49,10 @@ const useLazyLoadImage = (src) => {
 
     return () => {
       didCancel = true;
-      // on component cleanup, we remove the listner
+      // on component cleanup, remove the listner
       if (observer && observer.unobserve) {
         observer.unobserve(imageRef);
+        setIsLoading(false);
       }
     };
   }, [src, imageSrc, imageRef]);

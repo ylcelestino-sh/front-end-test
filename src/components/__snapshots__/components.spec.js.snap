@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`custom components test BadgeNotification test BadgeNotification should show correctly with props 1`] = `
+<span
+  class="css-1szyxpv"
+  data-testid="itemNumber"
+  variant="ghost"
+>
+  1
+</span>
+`;
+
+exports[`custom components test BadgeNotification test BadgeNotification should show correctly without props 1`] = `
+<span
+  class="css-1szyxpv"
+  data-testid="itemNumber"
+  variant="ghost"
+>
+  0
+</span>
+`;
+
+exports[`custom components test LazyImage test LazyImage should show correctly 1`] = `
+<img
+  alt="fake alt"
+  class="chakra-image__placeholder css-zv8j3m"
+  data-testid="lazyImage"
+  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
+/>
+`;

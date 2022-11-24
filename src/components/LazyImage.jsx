@@ -2,12 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Image, Spinner } from "@chakra-ui/react";
 import useLazyLoadImage from "../hooks/useLazyLoadImage";
+import { PLACEHOLDER } from "../constant/constant";
 
-const LazyImage = ({ alt, src, rounded, height, width, objectFit }) => {
+const LazyImage = ({ alt, src, rounded='lg', height=150, width=282, objectFit='contain' }) => {
   const { imageSrc, setImageRef, isLoading } = useLazyLoadImage(src);
   return (
     <>
         <Image
+          data-testid="lazyImage"
           ref={setImageRef}
           src={imageSrc}
           alt={alt}
@@ -15,6 +17,7 @@ const LazyImage = ({ alt, src, rounded, height, width, objectFit }) => {
           height={height}
           width={width}
           objectFit={objectFit}
+          fallbackSrc={PLACEHOLDER}
         />
       {
         isLoading ? <Spinner /> : null

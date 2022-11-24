@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductCard from "./ProductCard";
 import { FiSearch } from "react-icons/fi";
 import { useGetProductsQuery } from "../../../services/productAPI";
@@ -17,9 +17,9 @@ import {
 import useSearch from "../../../hooks/useSearch";
 
 const Products = () => {
-  
+  const [searchValue, setSearchValue] = useState("");
   const { data: products, isLoading } = useGetProductsQuery();
-  const { elementsSearched, setSearchValue } = useSearch(products || []);
+  const { elementsSearched } = useSearch({elements: products, searchValue: searchValue, propertyOfSearch:'model'});
 
   return (
     <Box maxW="7xl" mx={"auto"} pt={12} px={{ base: 2, sm: 12, md: 1 }} mt={5}>
@@ -45,15 +45,15 @@ const Products = () => {
       </Flex>
       <Divider mt={1} mb={2} />
       {isLoading ? (
-        <Center h="500px">
+        <Center h="500px" data-testid="isLoading">
           <Spinner size="xl" />
         </Center>
       ) : elementsSearched.length === 0 ? (
         <Center h="500px">
-          <Text fontSize="3xl">Oops no data found</Text>
+          <Text fontSize="3xl"  data-testid="noDataFound">Oops no data found</Text>
         </Center>
       ) : (
-        <SimpleGrid columns={{ base: 2, md: 4 }} spacing={{ base: 2, lg: 7 }}>
+        <SimpleGrid columns={{ base: 2, md: 4 }} spacing={{ base: 2, lg: 7 }} data-testid="productsData">
           {elementsSearched.map((product, index) => {
             return (
               <ProductCard

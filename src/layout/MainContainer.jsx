@@ -7,7 +7,7 @@ export const MainContainer = ({ children }) => {
   return (
     <>
       <Header />
-      <Container maxW="container.lg" pt={3}>
+      <Container maxW="container.lg" pt={3}  id="container">
         {children}
       </Container>
     </>
@@ -17,4 +17,5 @@ export const MainContainer = ({ children }) => {
 MainContainer.propTypes = {
   children: PropTypes.node,
 };
+
 export default MainContainer;

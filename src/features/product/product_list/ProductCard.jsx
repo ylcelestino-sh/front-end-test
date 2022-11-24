@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import {
   Box,
   Center,
@@ -7,14 +7,14 @@ import {
   Text,
   Stack,
   useColorModeValue,
-} from '@chakra-ui/react';
-import { useNavigate } from 'react-router-dom';
+} from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 import LazyImage from "../../../components/LazyImage";
 
 const ProductCard = ({ image, brand, model, price, id }) => {
   const navigate = useNavigate();
   return (
-    <Center py={12} pb={2}>
+    <Center py={12} pb={2} data-testid="productCard">
       <Box
         role={"group"}
         p={2}
@@ -26,6 +26,7 @@ const ProductCard = ({ image, brand, model, price, id }) => {
         pos={"relative"}
         zIndex={1}
         as="button"
+        data-testid="productCardBox"
         onClick={() => navigate(`/product/${id}`)}
       >
         <Box
@@ -50,14 +51,14 @@ const ProductCard = ({ image, brand, model, price, id }) => {
             },
           }}
         >
-          <LazyImage 
+          <LazyImage
             alt={model}
             src={image}
             rounded={"lg"}
             height={150}
             width={282}
             objectFit={"contain"}
-           />
+          />
         </Box>
         <Stack pt={10}>
           <Heading as="h1" size="md">

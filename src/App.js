@@ -7,7 +7,7 @@ import {
   Outlet,
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { store } from './app/store';
+import { setupStore } from './app/store';
 import { ChakraProvider } from '@chakra-ui/react'
 import MainContainer from './layout/MainContainer';
 import ProductDetails from './features/product/product_details/ProductDetails';
@@ -15,7 +15,7 @@ import Products from './features/product/product_list/Product';
 
 function App() {
   return (
-  <Provider store={store}>
+  <Provider store={setupStore()}>
   <ChakraProvider>
     <Router>
       <Routes>

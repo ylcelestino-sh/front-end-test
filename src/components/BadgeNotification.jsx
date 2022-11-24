@@ -22,6 +22,7 @@ const BadgeNotification = ({itemsNumbers = 0}) => {
         zIndex={9999}
         p={"1px"}
         variant="ghost"
+        data-testid="itemNumber"
       >
         {itemsNumbers}
       </Box>
